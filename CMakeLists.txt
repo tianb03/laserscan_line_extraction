@@ -28,9 +28,6 @@ catkin_package(
     CATKIN_DEPENDS message_runtime
 )
 
-find_package(PkgConfig REQUIRED)
-
-pkg_check_modules( ncurses REQUIRED ncurses)
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
@@ -195,7 +192,7 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 #############
 add_executable(laserline src/main.cpp src/laser_feature_ros.cpp src/line_feature.cpp)
 
-target_link_libraries(laserline ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${ncurses_LIBRARIES})
+target_link_libraries(laserline ${Boost_LIBRARIES} ${catkin_LIBRARIES})
 
 install(DIRECTORY include/${PROJECT_NAME}/
         DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
