@@ -163,7 +163,7 @@ bool LineFeature::detectline(const int start, const int num)
     }
 
     theta = params_.angle_increment * k + params_.angle_start;
-    if (fabs((fabs(theta) - PI / 2)) < 1e-05)
+    if (fabs((fabs(theta) - M_PI / 2)) < 1e-05)
     {
       m_pn.x = 0;
       m_pn.y = m_least.c;
@@ -176,7 +176,7 @@ bool LineFeature::detectline(const int start, const int num)
     }
 
     //计算到预测点之间的误差
-    error2 = distance_point(range_data_.xs[k], range_data_.ys[k], m_pn.x, m_pn.y);
+    error2 = std::hypot(range_data_.xs[k] - range_data_.ys[k], m_pn.x - m_pn.y);
     if (error2 > params_.predict_distance)
     {
       flag = true;
@@ -328,9 +328,9 @@ void LineFeature::cleanline()
 
         theta_d_ = fabs(theta_one_ - theta_two_);
 
-        if ((theta_d_ < 0.1) || (theta_d_ > (PI - 0.1)))
+        if ((theta_d_ < 0.1) || (theta_d_ > (M_PI - 0.1)))
         {
-          int _left = min(m_line[p].left, m_line[q].left);
+          int _left = std::min(m_line[p].left, m_line[q].left);
 
           least m_temp = leastsquare(_left, m_line[q].right, 1);
 
@@ -387,7 +387,7 @@ void LineFeature::cleanline()
 
 bool LineFeature::delete_short_line(const int n1, const int n2)
 {
-  if (distance_point(range_data_.xs[n1], range_data_.ys[n1], range_data_.xs[n2], range_data_.ys[n2]) <
+  if (std::hypot(range_data_.xs[n1] - range_data_.ys[n1], range_data_.xs[n2] - range_data_.ys[n2]) <
       params_.min_line_length)
   {
     return false;
