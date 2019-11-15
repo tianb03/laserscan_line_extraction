@@ -83,6 +83,7 @@ void LaserFeatureROS::publishMarkerMsg(const std::vector<gline>& m_gline, visual
     p_end.z = 0;
     marker_msg.points.push_back(p_end);
   }
+  marker_msg.pose.orientation.w = 1;
   marker_msg.header.frame_id = frame_id_;
   marker_msg.header.stamp = ros::Time::now();
 }

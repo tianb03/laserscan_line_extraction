@@ -38,6 +38,11 @@ public:
   void set_seed_line_points(unsigned int);
 
 private:
+  static double distance_point(double a1, double a2, double b1, double b2)
+  {
+    return sqrt((a1 - b1) * (a1 - b1) + (a2 - b2) * (a2 - b2));
+  }
+
   //检测种子点，障碍物聚类的子函数
   // bool detectseed(PoinT );
   //障碍物检测，区域生长
