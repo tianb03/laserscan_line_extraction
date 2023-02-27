@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(laserline)
+project(laserscan_line_extraction)
 
 find_package(Boost REQUIRED COMPONENTS system thread)
 ## Find catkin macros and libraries
@@ -190,14 +190,14 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 #############
 ## Testing ##
 #############
-add_executable(laserline src/main.cpp src/laser_feature_ros.cpp src/line_feature.cpp)
+add_executable(line_extraction src/main.cpp src/laser_feature_ros.cpp src/line_feature.cpp)
 
-target_link_libraries(laserline ${Boost_LIBRARIES} ${catkin_LIBRARIES})
+target_link_libraries(line_extraction ${Boost_LIBRARIES} ${catkin_LIBRARIES})
 
 install(DIRECTORY include/${PROJECT_NAME}/
         DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
-install(TARGETS laserline
+install(TARGETS line_extraction
         DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 ## Add gtest based cpp test target and link libraries

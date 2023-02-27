@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>laserline</name>
+  <name>laserscan_line_extraction</name>
   <version>0.0.0</version>
   <description>The laserline package</description>
 
