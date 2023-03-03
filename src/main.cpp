@@ -1,5 +1,5 @@
 #include <ros/ros.h>
-#include "laserline/laser_feature_ros.h"
+#include "laser_feature_ros.h"
 
 using namespace std;
 

@@ -13,7 +13,7 @@ mobile robot pose from laser
 #include <sensor_msgs/LaserScan.h>
 #include <visualization_msgs/Marker.h>
 #include <geometry_msgs/Point.h>
-#include "laserline/line_feature.h"
+#include "line_feature.h"
 
 namespace line_feature
 {
